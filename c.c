@@ -1,69 +1,36 @@
 #include <stdio.h>
 
 int main() {
-    int N, i, num;
-    int largest, smallest;
+    int num, originalNum, remainder, result = 0, n = 0, power, i;
 
-
-    printf("Enter the value of N: ");
-    scanf("%d", &N);
-
-  
-    if (N <= 0) {
-        printf("Please enter a positive integer for N.\n");
-        return 1;
-    }
-
-
-    printf("Enter the %d values: ", N);
-
+    printf("Enter the number: ");
     scanf("%d", &num);
-    largest =smallest =  num;
-5
 
+    originalNum = num;
 
-  
-    for (i = 1; i < N; i++) {
-        scanf("%d", &num);
-
-
-        if (num > largest) {
-            largest = num;
-        }
-        if (num < smallest) {
-            smallest = num;
-        }
+    while (originalNum != 0) {
+        originalNum /= 10;
+        ++n;
     }
 
+    originalNum = num;
 
-    printf("The largest value is %d, and the smallest value is %d.\n", largest, smallest);
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        power = 1;
+
+        for (i = 0; i < n; i++) {
+            power *= remainder;
+        }
+
+        result += power;
+        originalNum /= 10;
+    }
+
+    if (result == num)
+        printf("The number is an Armstrong number.\n");
+    else
+        printf("The number is not an Armstrong number.\n");
 
     return 0;
 }
-
-
-#include <stdio.h>
-
-int main() {
-	int num1, num2, hcf;
-
-	printf("Enter two integers: ");
-	scanf("%d %d", &num1, &num2);
-
-	int a = num1;
-	int b = num2;
-
-	while (b != 0) {
-		int temp = b;
-		b = a % b;
-		a = temp;
-	}
-
-	hcf = a;
-
-	printf("HCF of %d and %d is %d\n", num1, num2, hcf);
-
-	return 0;
-}
-
-
