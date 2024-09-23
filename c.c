@@ -1,84 +1,69 @@
 #include <stdio.h>
 
 int main() {
-	int num1, num2, num3;
-	int max, min;
+    int N, i, num;
+    int largest, smallest;
 
-	// Taking input from the user
-	printf("Enter the three numbers: ");
-	scanf("%d %d %d", &num1, &num2, &num3);
 
-	// Finding the maximum
-	max = num1;
-	if (num2 > max) {
-		max = num2;
-	}
-	if (num3 > max) {
-		max = num3;
-	}
+    printf("Enter the value of N: ");
+    scanf("%d", &N);
 
-	// Finding the minimum
-	min = num1;
-	if (num2 < min) {
-		min = num2;
-	}
-	if (num3 < min) {
-		min = num3;
-	}
+  
+    if (N <= 0) {
+        printf("Please enter a positive integer for N.\n");
+        return 1;
+    }
 
-	// Printing the results
-	printf("The maximum of the three numbers is %d.\n", max);
-	printf("The minimum of the three numbers is %d.\n", min);
 
-	return 0;
+    printf("Enter the %d values: ", N);
+
+    scanf("%d", &num);
+    largest =smallest =  num;
+5
+
+
+  
+    for (i = 1; i < N; i++) {
+        scanf("%d", &num);
+
+
+        if (num > largest) {
+            largest = num;
+        }
+        if (num < smallest) {
+            smallest = num;
+        }
+    }
+
+
+    printf("The largest value is %d, and the smallest value is %d.\n", largest, smallest);
+
+    return 0;
 }
 
 
 #include <stdio.h>
 
 int main() {
-	int n, num;
+	int num1, num2, hcf;
 
-	printf("Enter the number of cases: ");
-	scanf("%d", &n);
+	printf("Enter two integers: ");
+	scanf("%d %d", &num1, &num2);
 
-	for (int i = 1; i <= n; i++) {
-		printf("Enter number %d: ", i);
-		scanf("%d", &num);
+	int a = num1;
+	int b = num2;
 
-		if (num % 2 == 0) {
-			printf("The number is even.\n");
-		} else {
-			printf("The number is odd.\n");
-		}
+	while (b != 0) {
+		int temp = b;
+		b = a % b;
+		a = temp;
 	}
+
+	hcf = a;
+
+	printf("HCF of %d and %d is %d\n", num1, num2, hcf);
 
 	return 0;
 }
 
-#include <stdio.h>
 
-int main() {
-	int num, count = 0;
-
-	// Prompt user for input
-	printf("Enter the number: ");
-	scanf("%d", &num);
-
-	// Ensure the number is positive
-	if (num <= 0) {
-		printf("Please enter a positive integer.\n");
-		return 1;
-	}
-
-	// Count the number of digits
-	while (num != 0) {
-		num /= 10;
-		count++;
-	}
-
-	// Output the result
-	printf("The number of digits in the number is %d.\n", count);
-
-	return 0;
-}
