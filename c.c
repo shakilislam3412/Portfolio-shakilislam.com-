@@ -1,36 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int num, originalNum, remainder, result = 0, n = 0, power, i;
+    int X, Y;
 
-    printf("Enter the number: ");
-    scanf("%d", &num);
 
-    originalNum = num;
+    printf("Enter the values of X and Y: ");
+    scanf("%d %d", &X, &Y);
 
-    while (originalNum != 0) {
-        originalNum /= 10;
-        ++n;
-    }
 
-    originalNum = num;
-
-    while (originalNum != 0) {
-        remainder = originalNum % 10;
-        power = 1;
-
-        for (i = 0; i < n; i++) {
-            power *= remainder;
+    if (X > Y) {
+        printf("No even numbers are possible.\n");
+    } else {
+        printf("The even numbers are: ");
+        for (int i = X; i <= Y; i++) {
+            if (i % 2 == 0) {
+                printf("%d ", i);
+            }
         }
-
-        result += power;
-        originalNum /= 10;
+        printf("\n");
     }
-
-    if (result == num)
-        printf("The number is an Armstrong number.\n");
-    else
-        printf("The number is not an Armstrong number.\n");
 
     return 0;
 }
